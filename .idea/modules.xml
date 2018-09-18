@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/sensores.iml" filepath="$PROJECT_DIR$/sensores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/introcom-sensores.iml" filepath="$PROJECT_DIR$/introcom-sensores.iml" />
     </modules>
   </component>
 </project>

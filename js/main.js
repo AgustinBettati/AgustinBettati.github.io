@@ -14,5 +14,16 @@ if(window.DeviceMotionEvent){
 }
 
 
+if(window.DeviceOrientationEvent){
+    window.addEventListener("deviceorientation", function orientation(event){
+        document.getElementById("magneValues").innerHTML= "Magnetometer: "
+            + event.alpha + ", "
+            + event.beta + ", "
+            + event.gamma;
+    }, false);
+}else{
+    console.log("DeviceOrientationEvent is not supported");
+}
+
 
 
