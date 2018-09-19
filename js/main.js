@@ -1,5 +1,5 @@
 let accelNextValue = true;
-let gyroNextValue = true;
+let magneNextValue = true;
 
 main();
 
@@ -14,7 +14,7 @@ function main() {
 
 function addListeners() {
     window.addEventListener("devicemotion", accelListener, true);
-    window.addEventListener("deviceorientation", gyroListener, true);
+    window.addEventListener("deviceorientation", magneListener, true);
 }
 
 function accelListener(event) {
@@ -33,20 +33,20 @@ function printAccel(acceleration) {
         + "z: " + acceleration.z + "</br></br>";
 }
 
-function gyroListener(event) {
-    if(!gyroNextValue) return;
-    gyroNextValue = false;
-    printGyro(event);
+function magneListener(event) {
+    if(!magneNextValue) return;
+    magneNextValue = false;
+    printMagne(event);
     setTimeout(() => {
-        gyroNextValue = true;
+        magneNextValue = true;
     }, 500);
 }
 
-function printGyro(gyro) {
+function printMagne(magne) {
     document.getElementById("magneValues").innerHTML =
-        "alpha: " + gyro.alpha + "</br> "
-        + "beta: " +  gyro.beta + "</br> "
-        + "gamma: " + gyro.gamma + "</br></br>";
+        "alpha: " + magne.alpha + "</br> "
+        + "beta: " +  magne.beta + "</br> "
+        + "gamma: " + magne.gamma + "</br></br>";
 }
 
 //
