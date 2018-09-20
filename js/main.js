@@ -1,5 +1,6 @@
 let accelNextValue = true;
 let magneNextValue = true;
+let gyroNextValue = false;
 
 main();
 
@@ -21,6 +22,7 @@ function accelListener(event) {
     if(!accelNextValue) return;
     accelNextValue = false;
     printAccel(event.accelerationIncludingGravity);
+    printGyro(event.rotationRate);
     setTimeout(() => {
         accelNextValue = true
     }, 500);
@@ -33,13 +35,20 @@ function printAccel(acceleration) {
         + "z: " + acceleration.z + "</br></br>";
 }
 
+function printGyro(gyro) {
+    document.getElementById("gyroValues").innerHTML =
+        "alpha: " + gyro.alpha + "</br> "
+        + "beta: " +  gyro.beta + "</br> "
+        + "gamma: " + gyro.gamma + "</br></br>";
+}
+
 function magneListener(event) {
     if(!magneNextValue) return;
     magneNextValue = false;
     printMagne(event);
     setTimeout(() => {
         magneNextValue = true;
-    }, 500);
+}, 500);
 }
 
 function printMagne(magne) {
