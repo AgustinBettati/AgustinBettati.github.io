@@ -1,6 +1,5 @@
-let accelNextValue = true;
+let motionNextValue = true;
 let magneNextValue = true;
-let gyroNextValue = false;
 
 main();
 
@@ -14,17 +13,17 @@ function main() {
 }
 
 function addListeners() {
-    window.addEventListener("devicemotion", accelListener, true);
+    window.addEventListener("devicemotion", motionListener, true);
     window.addEventListener("deviceorientation", magneListener, true);
 }
 
-function accelListener(event) {
-    if(!accelNextValue) return;
-    accelNextValue = false;
+function motionListener(event) {
+    if(!motionNextValue) return;
+    motionNextValue = false;
     printAccel(event.accelerationIncludingGravity);
     printGyro(event.rotationRate);
     setTimeout(() => {
-        accelNextValue = true
+        motionNextValue = true
     }, 500);
 }
 
@@ -58,15 +57,4 @@ function printMagne(magne) {
         + "gamma: " + magne.gamma + "</br></br>";
 }
 
-//
-// if(window.DeviceOrientationEvent){
-//     window.addEventListener("deviceorientation", function orientation(event){
-//         document.getElementById("magneValues").innerHTML= "Magnetometer: "
-//             + event.alpha + ", "
-//             + event.beta + ", "
-//             + event.gamma;
-//     }, false);
-// }else{
-//     console.log("DeviceOrientationEvent is not supported");
-// }
 
