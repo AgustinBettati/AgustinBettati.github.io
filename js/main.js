@@ -10,6 +10,12 @@ function main() {
     }else{
         document.getElementById("body").innerHTML = "Cannot access sensors"
     }
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        document.getElementById("locationValues").innerHTML = 'latitude: ' + lat +', longitud: ' + lon
+    });
 }
 
 function addListeners() {
