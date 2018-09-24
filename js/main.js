@@ -15,6 +15,20 @@ function main() {
 function addListeners() {
     window.addEventListener("devicemotion", motionListener, true);
     window.addEventListener("deviceorientation", magneListener, true);
+    window.addEventListener('devicelight', lightListener, true);
+    window.addEventListener('deviceproximity', proximityListener, true);
+}
+
+
+function lightListener(event) {
+    // Get the ambient light level in lux.
+    document.getElementById("lightValues").innerHTML = event.value;
+}
+
+function proximityListener(event) {
+    document.getElementById("proximityHeader").innerHTML = "Proximity (min: " + event.min + ", max: " + event.max +")";
+    // The device proximity (in cm).
+    document.getElementById("proximityValues").innerHTML = event.value;
 }
 
 function motionListener(event) {
